@@ -170,3 +170,43 @@ The bat prints step markers `[1]` through `[7]`. On error it prints an English m
 ---
 
 ## 📁 Project Layout
+mclauncher/
+├── MinecraftLauncher.exe # compiled binary
+├── main.go # extracted source
+├── logo.png # generated icon
+├── settings.json # user settings (username, RAM, version)
+├── launcher.log # runtime log
+├── jre/<major>/ # per-version Java
+├── libraries/ # shared libraries
+├── versions/<id>/ # client jar + metadata
+├── assets/objects/ # shared assets
+├── natives/ # extracted natives
+├── go/ # portable Go (if downloaded)
+└── mingw/ # portable MinGW (if downloaded)
+
+text
+
+---
+
+## 🔧 Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| `go` or `gcc` not found during build | The bat auto-downloads them; if it still fails, check internet or run again |
+| Build fails with TLS error | Transient network issue — re-run `build.bat`. It retries 3 times. |
+| Game does not launch | Check `mclauncher/launcher.log` for the exact error |
+| Java missing at launch | The launcher downloads it automatically per version; check internet |
+| Fabric unavailable for selected version | Launcher falls back to Vanilla automatically |
+| Window does not open | Ensure WebView2 Runtime is installed (comes with Edge on Win10 21H2+/Win11) |
+
+---
+
+## 📄 License
+
+MIT — free to use, modify, and distribute. Attribution appreciated.
+
+<div align="center">
+
+**Made with 🧱 by [Bugrahan](https://tiktok.com/@script.xd)**
+
+</div>
